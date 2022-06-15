@@ -6,7 +6,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 const { height } = Dimensions.get("screen")
 
-const Landing = () => {
+const Landing = ({ navigation }) => {
   console.log(height);
   console.log(StatusBar.currentHeight);
   const state = useSelector((state) => state.specificProfile)
@@ -37,6 +37,7 @@ const Landing = () => {
         </View>
         <View style={{ height: 120, flexDirection: "row", alignItems: "flex-end" ,paddingVertical:40}}>
           <TouchableOpacity style={style.button1}
+          onPress={() => navigation.navigate("login")}
           >
             <Text style={{
               fontWeight: "700",

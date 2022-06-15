@@ -1,28 +1,28 @@
 import axios from "axios";
 import { LOGIN_FAILURE, LOGIN_SUCCESS } from "./actionTypes"
 
-// export const loginTriggered = () => {
-//     return {
-//         type:LOGIN_SUCCESS,
-//         payload:{
-//             userName:"abc",
-//             password:"1243",
-//             role:"admin"
-//         }
-//     }
-// }
-// export const loginFailed = () => {
-//     return {
-//         type:LOGIN_FAILURE
-//     }
-// }
-export const loginTriggered = (states) => (dispatch,getState)=> {
-    console.log(states);
-    const requestBody ={
-        email:states.userName,
-        password:states.password
+export const loginTriggered = () => {
+    return {
+        type:LOGIN_SUCCESS,
+        payload:{
+            userName:"abc",
+            password:"1243",
+            role:"admin"
+        }
     }
-    return new Promise((resolve, reject)=> {                             //to hold the dispatch action ->async Thunk
+}
+export const loginFailed = () => {
+    return {
+        type:LOGIN_FAILURE
+    }
+}
+// export const loginTriggered = (states) => (dispatch,getState)=> {
+//     console.log(states);
+//     const requestBody ={
+//         email:states.userName,
+//         password:states.password
+//     }
+//     return new Promise((resolve, reject)=> {                             //to hold the dispatch action ->async Thunk
     //     if(states.userName === "Abc" && states.password === "123"){
     //     dispatch({
     //         type:LOGIN_SUCCESS,
@@ -55,6 +55,6 @@ export const loginTriggered = (states) => (dispatch,getState)=> {
             //     })
             //     reject(res.data.message)
     // }
-    });
+//     });
    
-}
+// }

@@ -8,7 +8,7 @@ import {loginFailed, loginTriggered} from './action'
 
 const { height } = Dimensions.get("screen")
 
-const Login = () => {
+const Login = ({navigation}) => {
   var { SocialIcon } = require('react-social-icons');
   console.log(height);
   console.log(StatusBar.currentHeight);
@@ -18,27 +18,28 @@ const loginStatus = useSelector((store) => store.loginState);
 
 console.log(loginStatus);
 const dispatch = useDispatch();
-// const login =() =>{
-//   if(states.userName === "Abc" && states.password === "123"){
-//     dispatch(loginTriggered());
-//   }
-//   else{
-//     dispatch(loginFailed());
-//   }
+const login =() =>{
+  if(states.userName === "Abc" && states.password === "123"){
+    dispatch(loginTriggered());
+      navigation.navigate("profile")
+  }
+  else{
+    dispatch(loginFailed());
+  }
   
-// }
-const login =() =>{  
-    dispatch(loginTriggered(states))
-    .then((res) => {
-      console.log(res);
-    }) 
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(()=>{
-      console.log("COMPLETED");
-    })
 }
+// const login =() =>{  
+//     dispatch(loginTriggered(states))
+//     .then((res) => {
+//       console.log(res);
+//     }) 
+//     .catch((err) => {
+//       console.log(err);
+//     })
+//     .finally(()=>{
+//       console.log("COMPLETED");
+//     })
+// }
 
   return (
     <SafeAreaView style={{ backgroundColor: "cyan", flex: 1 }}>
@@ -95,7 +96,7 @@ const login =() =>{
           <TouchableOpacity
           >
             <Text style={{
-              textAlign: "right", color: "#2D2626", fontWeight: "500", fontSize: 15
+              textAlign: "right", color: "#2D2626", fontWeight: "500", fontSize: 15,marginRight:12
             }}>Forgot Password ?</Text>
           </TouchableOpacity>
         </View>
@@ -112,18 +113,20 @@ const login =() =>{
         <View style={{
           marginHorizontal: 20, justifyContent: "center", width: 339
         }}>
-          <View style={{
-              borderColor: 'black',
-              borderWidth: 1
-            }}>
+          {/* <View style={{
+              borderColor: "#F89AEE",
+              borderWidth: 1,
+              width:'80%'
+            }}></View> */}
           <View>
             <Text style={{
               fontWeight: "500",
               fontSize: 12,
               color: "#555252",
-              textAlign: "center"
+              textAlign: "center",
+              // marginTop:-12,
+              
             }}>Or SignUp With</Text>
-          </View>
           </View>
         </View>
         <View style={{
@@ -140,7 +143,7 @@ const login =() =>{
           </TouchableOpacity>
           <TouchableOpacity style={style.button2}
           >
-            <SocialIcon network="tumbler" style={{ height: 25, width: 25 }} />
+            <SocialIcon network="pinterest" style={{ height: 25, width: 25 }} />
           </TouchableOpacity>
         </View>
       </View>
@@ -189,7 +192,7 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     border: 'none',
-    outline: 'none !important'
+    outline: 'none !important',
   },
   
 

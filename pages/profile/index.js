@@ -1,14 +1,17 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import {
+  View, Text, TouchableOpacity, TextInput,
+  StyleSheet, SafeAreaView, Dimensions, Platform, StatusBar, Image,
+} from 'react-native'
+import React from 'react'
 
-export class Profile extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Profile</Text>
-      </View>
-    )
-  }
+const Profile = () => {
+  return (
+    <SafeAreaView style={{ backgroundColor: "cyan", flex: 1 }}>
+    <View>
+      <Text>Profile</Text>
+    </View>
+    </SafeAreaView>
+  )
 }
 
 export default Profile
